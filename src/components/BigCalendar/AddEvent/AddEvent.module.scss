@@ -1,0 +1,15 @@
+.container {
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background-color: lightblue;
+  display: none;
+}
+
+.form {
+  padding: 20px;
+  text-align: center;
+}
