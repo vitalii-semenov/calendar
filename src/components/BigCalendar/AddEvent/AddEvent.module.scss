@@ -4,12 +4,36 @@
   top: 0;
   left: 0;
   width: 400px;
-  height: 400px;
-  background-color: lightblue;
+  height: 450px;
+  background-color: white;
   display: none;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 0 0px 6px 0px;
 }
 
 .form {
+  text-align: left;
   padding: 20px;
-  text-align: center;
+  & > div, & > span {
+    width: 100%;
+  }
+  input {
+    width: 100%;
+  }
+
+  h3 {
+    color: lightslategrey;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2rem;
+
+  a {
+    font-weight: 700;
+  }
 }

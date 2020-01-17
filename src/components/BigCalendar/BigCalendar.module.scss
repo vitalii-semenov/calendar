@@ -1,0 +1,14 @@
+.container {
+  height: calc(100vh - 80px);
+  padding: 1rem 0 0 5%;
+  background-color: rgba(223, 223, 223, 0.35);
+  h2 {
+    color: lightslategrey;
+  }
+}
+
+.calendarContainer {
+  height: 90%;
+  padding: 1rem;
+  background-color: #fff;
+}

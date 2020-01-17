@@ -1,38 +1,52 @@
-import React, {forwardRef, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import {ColorPicker} from 'primereact/colorpicker';
 import {Calendar} from 'primereact/calendar';
 import {InputText} from 'primereact/inputtext';
 
-
-import styles from './AddEvent.module.scss'
+import styles from './AddEvent.module.scss';
 
 const AddEvent = forwardRef((props, ref) => {
   const [state, setState] = useState({
     title: '',
-    date: '',
+    start: '',
     color: '',
-    message: ''
+    message: '',
   });
+
+  useEffect(() => {
+    setState({
+      title: props.tempEvent.title || '',
+      start: props.tempEvent.start || '',
+      color: props.tempEvent.color || 'ffffff',
+      message: props.tempEvent.message || '',
+    });
+  }, [props.tempEvent]);
   return (
       <div ref={ref} className={styles.container}>
         <div className={styles.form}>
           <h3>Title:</h3>
           <InputText name={'title'} value={state.title} onChange={(e) => {
-            e.persist()
-            setState(prevState => ({...prevState, title: e.target.value}))
-          }} />
+            e.persist();
+            setState(prevState => ({...prevState, title: e.target.value}));
+          }}/>
           <h3>Time:</h3>
-          <Calendar name={'date'} value={state.date} onChange={(e) => setState(prevState => ({...prevState, date: e.value }))} timeOnly={true} hourFormat="24" />
+          <Calendar name={'date'} value={state.start}
+                    onChange={(e) => setState(prevState => ({...prevState, start: e.value}))} timeOnly={true}
+                    hourFormat="12"/>
           <h3>Title color</h3>
-          <ColorPicker className={'color'} value={state.color} onChange={(e) => setState(prevState => ({...prevState, color: e.value }))} />
+          <ColorPicker className={'color'} value={state.color}
+                       onChange={(e) => setState(prevState => ({...prevState, color: e.value}))}/>
           <h3>Message:</h3>
           <InputText name={'message'} value={state.message} onChange={(e) => {
-            e.persist()
-            setState(prevState => ({...prevState, message: e.target.value}))
-          }} />
+            e.persist();
+            setState(prevState => ({...prevState, message: e.target.value}));
+          }}/>
           <div className={styles.buttonContainer}>
-            <a href="/#">Cancel</a>
-            <a href="/#" onClick={() => props.addNewEvent(state)}>Save</a>
+            <a style={{color: 'orange'}} href="/#" onClick={() => ref.current.style.display = 'none'}>Cancel</a>
+            <a href="/#" onClick={() => {
+              props.tempEvent.id || props.tempEvent.id === 0 ? props.editEvent(state, props.tempEvent.id) :
+                  props.addNewEvent(state);
+            }}>Save</a>
           </div>
         </div>
       </div>
