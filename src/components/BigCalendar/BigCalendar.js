@@ -109,7 +109,6 @@ class BigCalendar extends Component {
   };
 
   editEvent = (data, id) => {
-    console.log('DATA', data);
     const {events} = this.state;
     let changeableEvents = [...events];
     const addPopup = this.myRef.current;
@@ -117,13 +116,11 @@ class BigCalendar extends Component {
     const addTime = moment(data.start);
     const diff = moment(changeableEvents[id].end).diff(moment(changeableEvents[id].start));
     let endTime;
-    console.log(diff);
     if (diff >= 0) {
       endTime = moment(data.start).add(diff);
     } else {
       endTime = moment(data.start).add({minute: 30})
     }
-    console.log(endTime);
     changeableEvents[id] = {
       id: changeableEvents[id].id,
       title: data.title,
@@ -143,7 +140,9 @@ class BigCalendar extends Component {
   render() {
     return (
         <div className={styles.container}>
-          <h2>Calendar</h2>
+          <div className={styles.calendarHeader}>
+            <h2>Calendar</h2>
+          </div>
           <AddEvent editEvent={this.editEvent} tempEvent={this.state.tempEvent} addNewEvent={this.addNewEvent}
                     events={this.state.events} ref={this.myRef}/>
           <div className={styles.calendarContainer}>

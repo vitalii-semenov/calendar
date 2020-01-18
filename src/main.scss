@@ -1,9 +1,12 @@
+@import "./constants/globalConstants";
+
 * {
   box-sizing: border-box;
 }
 html, body {
   margin: 0;
   padding: 0;
+  font-family: "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
 .rbc-calendar {
@@ -14,4 +17,106 @@ input.p-inputtext {
   border: none !important;
   border-bottom: 1px solid lightslategrey !important;
   border-radius: 0 !important;
+}
+
+.rbc-toolbar {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+.rbc-month-header, .rbc-header {
+  height: 45px !important;
+  background-color: #F5F6FA !important;
+  //border: 1px solid #EAF0F4 !important;
+}
+
+.rbc-header {
+  @include flex(row, center, center, nowrap);
+  color: #A3A6B4 !important;
+  font-size: 11px !important;
+  border-bottom: 1px solid #EAF0F4;
+}
+
+.rbc-date-cell a {
+  font-weight: 500;
+  font-size: 15px !important;
+  color: #43425D !important;
+}
+
+.rbc-off-range a {
+  opacity: .3 !important;
+}
+
+.rbc-off-range-bg {
+  background-color: #fff !important;
+}
+
+.rbc-month-view, .rbc-time-view {
+  border: 1px solid #EAF0F4;
+}
+
+.rbc-header + .rbc-header {
+  border-left: none !important;
+}
+
+.rbc-day-bg + .rbc-day-bg, .rbc-time-header-content, .rbc-time-content > * + * > * {
+  border-left: 1px solid #EAF0F4;
+}
+
+.rbc-month-row + .rbc-month-row, .rbc-time-content {
+  border-top: 1px solid #EAF0F4;
+}
+
+.rbc-today {
+  background-color: #F5F6FA;
+}
+
+.rbc-active {
+  color: #3B86FF !important;
+  background-color: #fff !important;
+  box-shadow: none !important;
+}
+
+.rbc-event {
+  background-color: #3B86FF;
+}
+
+.rbc-time-header.rbc-overflowing {
+  border-right: 1px solid #EAF0F4;
+}
+
+.rbc-timeslot-group {
+  border-bottom: 1px solid #EAF0F4 !important;
+}
+
+.rbc-time-view .rbc-allday-cell {
+  height: auto !important;
+}
+
+.rbc-time-slot {
+  @include flex(column, center, center, nowrap)
+}
+
+.rbc-time-slot span {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+body .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none !important;
+  border-color: #007ad9;
+}
+
+body .p-datepicker .p-timepicker span {
+  font-size: 1em !important;
+}
+
+body .p-datepicker.p-datepicker-timeonly .p-timepicker {
+  @include flex(row, center, center, nowrap)
+}
+
+.rbc-btn-group button:first-child {
+  color: #3B86FF;
 }

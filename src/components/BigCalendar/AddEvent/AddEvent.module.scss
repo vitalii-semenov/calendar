@@ -3,23 +3,33 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 400px;
-  height: 450px;
+  width: 201px;
+  height: 275px;
   background-color: white;
   display: none;
   border: 1px solid grey;
   border-radius: 10px;
   box-shadow: 0 0px 6px 0px;
+
+  h3 {
+    font-size: 9px;
+    margin: 0;
+    font-weight: 500;
+    color: #D6D6D6;
+  }
 }
 
 .form {
   text-align: left;
-  padding: 20px;
+  padding: 22px 25px;
   & > div, & > span {
     width: 100%;
   }
   input {
     width: 100%;
+    margin-bottom: 20px;
+    font-size: 9px !important;
+    padding: 0 !important;
   }
 
   h3 {
@@ -30,10 +40,11 @@
 .buttonContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-top: 2rem;
+  justify-content: space-between;
+  margin-top: 17px;
 
   a {
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 12px;
   }
 }

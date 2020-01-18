@@ -21,31 +21,47 @@ const AddEvent = forwardRef((props, ref) => {
       message: props.tempEvent.message || '',
     });
   }, [props.tempEvent]);
+
   return (
       <div ref={ref} className={styles.container}>
         <div className={styles.form}>
+
           <h3>Title:</h3>
-          <InputText name={'title'} value={state.title} onChange={(e) => {
-            e.persist();
-            setState(prevState => ({...prevState, title: e.target.value}));
+          <InputText
+            name={'title'}
+            value={state.title}
+            onChange={(e) => {
+              e.persist();
+              setState(prevState => ({...prevState, title: e.target.value}));
           }}/>
+
           <h3>Time:</h3>
-          <Calendar name={'date'} value={state.start}
-                    onChange={(e) => setState(prevState => ({...prevState, start: e.value}))} timeOnly={true}
+          <Calendar name={'date'}
+                    value={state.start}
+                    onChange={(e) => setState(prevState => ({...prevState, start: e.value}))}
+                    timeOnly={true}
                     hourFormat="12"/>
+
           <h3>Title color</h3>
-          <ColorPicker className={'color'} value={state.color}
+          <ColorPicker className={'color'}
+                       value={state.color}
                        onChange={(e) => setState(prevState => ({...prevState, color: e.value}))}/>
+
           <h3>Message:</h3>
-          <InputText name={'message'} value={state.message} onChange={(e) => {
-            e.persist();
-            setState(prevState => ({...prevState, message: e.target.value}));
+          <InputText
+            name={'message'}
+            value={state.message}
+            onChange={(e) => {
+              e.persist();
+              setState(prevState => ({...prevState, message: e.target.value}));
           }}/>
+
           <div className={styles.buttonContainer}>
-            <a style={{color: 'orange'}} href="/#" onClick={() => ref.current.style.display = 'none'}>Cancel</a>
-            <a href="/#" onClick={() => {
-              props.tempEvent.id || props.tempEvent.id === 0 ? props.editEvent(state, props.tempEvent.id) :
-                  props.addNewEvent(state);
+            <a style={{color: '#FF5F5F'}} href="/#"
+               onClick={() => ref.current.style.display = 'none'}>Cancel</a>
+            <a style={{color: '#6A6996'}} href="/#" onClick={() => {
+              props.tempEvent.id || props.tempEvent.id === 0 ?
+                props.editEvent(state, props.tempEvent.id) : props.addNewEvent(state);
             }}>Save</a>
           </div>
         </div>

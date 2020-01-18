@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Home from '../components/Home';
+import { withRouter } from 'react-router';
 
 class App extends Component {
   render() {
+    const { children } = this.props;
     return (
         <>
-          <Home/>
+          {children}
         </>
     )
   }
 }
 
-export default App
+export default withRouter(App)

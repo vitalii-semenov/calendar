@@ -1,11 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './containers/App';
+import * as React from 'react';
+import {render} from 'react-dom';
+import Routes from './Routes';
+import {createBrowserHistory} from 'history';
+import {Router} from 'react-router-dom';
 
-import './main.scss'
+import './main.scss';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const history = createBrowserHistory();
 
+render(
+    <Router history={history}>
+      <Routes/>
+    </Router>, document.getElementById('root'));

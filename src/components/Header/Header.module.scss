@@ -1,4 +1,89 @@
+@import "../../constants/globalConstants";
+
 .container {
-  height: 80px;
-  background-color: rgba(119, 136, 153, 0.33);
+  @include flex(row, space-between, center, nowrap);
+
+  height: 70px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px #0000000A;
+  padding: 0 20px;
+}
+
+
+.search {
+  @include flex(row, flex-start, center, nowrap);
+  cursor: pointer;
+
+  img {
+    margin-right: 10px;
+  }
+  div {
+    color: #4D4F5C;
+  }
+}
+
+.rightSide {
+  @include flex(row, flex-start, center, nowrap);
+}
+
+.icons {
+  @include flex(row, flex-start, center, nowrap);
+  position: relative;
+
+  .notification {
+    position: relative;
+  }
+
+  .notification:after {
+    content: '';
+    position: absolute;
+    top: -14px;
+    right: -21px;
+    background-image: url('../../assets/pictures/Notification Badge.svg');
+    width: 8px;
+    height: 8px;
+    background-position: -2px -2px;
+  }
+
+  img {
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  img:last-child {
+    margin-right: 20px;
+  }
+  .verticalLine {
+    display: inline-block;
+    width: 1px;
+    height: 28px;
+    background-color: #EBEBF2;
+  }
+}
+
+.user {
+  @include flex(row, flex-start, center, nowrap);
+  padding-left: 20px;
+
+  .userName {
+    color: #4D4F5C;
+    margin-right: 37px;
+    position: relative;
+    font-size: 13px;
+    cursor: pointer;
+    &:after {
+      content: '';
+      position: absolute;
+      background: url("../../assets/pictures/Path 26.svg") no-repeat;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-30%) translateX(100%);
+      width: 11px;
+      height: 7px;
+    }
+  }
+
+  img {
+    cursor: pointer;
+  }
 }

@@ -1,14 +1,30 @@
+@import "../../constants/globalConstants";
+
 .container {
-  height: calc(100vh - 80px);
-  padding: 1rem 0 0 5%;
-  background-color: rgba(223, 223, 223, 0.35);
+  height: calc(100vh - 70px);
+  padding: 0 95px 103px 75px;
+  background-color: #F0F0F7;
+  width: 85%;
+
+  .calendarHeader {
+    @include flex(row, flex-start, center, nowrap);
+    height: 100px;
+
+  }
   h2 {
-    color: lightslategrey;
+    color: #43425D;
+    font-weight: 500;
+    margin: 0;
   }
 }
 
 .calendarContainer {
   height: 90%;
-  padding: 1rem;
+  padding: 19px 20px 0 20px;
   background-color: #fff;
+
+  h2 {
+    font-size: 18px;
+    margin: 0 0 15px 0;
+  }
 }

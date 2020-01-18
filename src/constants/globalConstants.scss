@@ -1,0 +1,14 @@
+@mixin flex($fd, $jc, $ai, $fw) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
