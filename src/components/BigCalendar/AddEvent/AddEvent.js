@@ -2,6 +2,7 @@ import React, {forwardRef, useEffect, useState} from 'react';
 import {ColorPicker} from 'primereact/colorpicker';
 import {Calendar} from 'primereact/calendar';
 import {InputText} from 'primereact/inputtext';
+import closeImg from '../../../assets/pictures/highlight_off-24px.svg';
 
 import styles from './AddEvent.module.scss';
 
@@ -25,7 +26,7 @@ const AddEvent = forwardRef((props, ref) => {
   return (
       <div ref={ref} className={styles.container}>
         <div className={styles.form}>
-
+          <img src={closeImg} alt="" className={styles.closeIcon} onClick={() => ref.current.style.display = 'none'} />
           <h3>Title:</h3>
           <InputText
             name={'title'}

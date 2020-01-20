@@ -7,7 +7,7 @@ import invoicesImg from '../../assets/pictures/Path 102.svg';
 import helpImg from '../../assets/pictures/Path 107.svg';
 import settingsImg from '../../assets/pictures/Path 108.svg';
 import calendarImg from '../../assets/pictures/Path 149.svg';
-import homeImg from '../../assets/pictures/Path 357(1).svg';
+import homeImg from '../../assets/pictures/Path 357.svg';
 import someImg from '../../assets/pictures/Path 9.svg'
 
 
