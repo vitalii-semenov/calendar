@@ -26,7 +26,14 @@ const AddEvent = forwardRef((props, ref) => {
   return (
       <div ref={ref} className={styles.container}>
         <div className={styles.form}>
-          <img src={closeImg} alt="" className={styles.closeIcon} onClick={() => ref.current.style.display = 'none'} />
+          <img src={closeImg} alt="" className={styles.closeIcon} onClick={() => {
+            if (props.tempEvent.id >= 0) {
+              props.removeEvent(props.tempEvent.id);
+              return ref.current.style.display = 'none';
+            } else {
+              return ref.current.style.display = 'none';
+            }
+          }} />
           <h3>Title:</h3>
           <InputText
             name={'title'}

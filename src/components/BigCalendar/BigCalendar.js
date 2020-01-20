@@ -135,6 +135,13 @@ class BigCalendar extends Component {
     });
   };
 
+  removeEvent = (id) => {
+    const withDeletedEvent = [...this.state.events].filter(el => el.id !== id);
+    return this.setState({
+      events: withDeletedEvent
+    })
+  };
+
   myRef = createRef();
 
   render() {
@@ -144,7 +151,7 @@ class BigCalendar extends Component {
             <h2>Calendar</h2>
           </div>
           <AddEvent editEvent={this.editEvent} tempEvent={this.state.tempEvent} addNewEvent={this.addNewEvent}
-                    events={this.state.events} ref={this.myRef}/>
+                    events={this.state.events} ref={this.myRef} removeEvent={this.removeEvent}/>
           <div className={styles.calendarContainer}>
             <h2>Calendar view</h2>
             <DragAndDropCalendar
